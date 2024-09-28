@@ -1,5 +1,6 @@
 # gitploy-action
 
+[![action](https://badgen.net/badge/github/gitploy-action?icon&label)](https://github.com/marketplace/actions/gitploy-action)
 [![version](https://badgen.net/github/release/remarkablemark/gitploy-action)](https://github.com/remarkablemark/gitploy-action/releases)
 [![test](https://github.com/remarkablemark/gitploy-action/actions/workflows/test.yml/badge.svg)](https://github.com/remarkablemark/gitploy-action/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
