@@ -7,15 +7,33 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
+    env:
+      TEST_BRANCH: test-${{ github.run_id }}-${{ matrix.os }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Create test directory
+        run: |
+          mkdir ${{ github.run_id }}
+          echo test > ${{ github.run_id }}/file
+
       - name: Run action
         uses: ./
-
-      - name: Run action with version
-        uses: ./
         with:
-          version: 2.3.4
+          directory: ${{ github.run_id }}
+          branch: ${{ env.TEST_BRANCH }}
+
+      - name: Checkout test branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TEST_BRANCH }}
+
+      - name: Verify test file
+        run: grep -Fxq test file
+
+      - name: Delete test branch
+        run: git push origin --delete ${{ env.TEST_BRANCH }}
+        if: always()
+        continue-on-error: true
