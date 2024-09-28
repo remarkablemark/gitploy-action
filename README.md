@@ -31,7 +31,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: remarkablemark/gitploy-action@v1
         with:
-          directory: dist
+          directory: build
 ```
 
 ## Usage
@@ -53,7 +53,7 @@ See [action.yml](action.yml)
 ```yaml
 - uses: remarkablemark/gitploy-action@v1
   with:
-    directory: dist
+    directory: build
 ```
 
 ### `branch`
@@ -63,7 +63,7 @@ See [action.yml](action.yml)
 ```yaml
 - uses: remarkablemark/gitploy-action@v1
   with:
-    directory: dist
+    directory: build
     branch: gh-pages
 ```
 
