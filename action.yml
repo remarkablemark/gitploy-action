@@ -38,5 +38,5 @@ runs:
       if: always()
 
 branding:
-  icon: activity
-  color: white
+  icon: git-branch
+  color: orange
