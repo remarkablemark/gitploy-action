@@ -4,7 +4,7 @@
 [![test](https://github.com/remarkablemark/gitploy-action/actions/workflows/test.yml/badge.svg)](https://github.com/remarkablemark/gitploy-action/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-🚀 GitHub Action to deploy a directory to a remote Git branch.
+🚀 GitHub Action to deploy a directory to a remote Git branch. See [demo](https://remarkablemark.org/gitploy-action/).
 
 > [!NOTE]
 >
@@ -20,6 +20,7 @@
 ## Quick Start
 
 ```yaml
+# .github/workflows/deploy.yml
 on: push
 jobs:
   deploy:
