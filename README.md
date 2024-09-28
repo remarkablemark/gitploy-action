@@ -36,7 +36,7 @@ jobs:
 
 ## Usage
 
-See [action.yml](action.yml)
+See [action.yml](https://github.com/remarkablemark/gitploy-action/blob/master/action.yml)
 
 **Basic:**
 
@@ -73,4 +73,4 @@ Contributions are welcome! 👋
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/remarkablemark/gitploy-action/blob/master/LICENSE)
