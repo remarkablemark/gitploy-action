@@ -1,17 +1,42 @@
-name: github-actions-composite-template
-description: GitHub Actions Composite Template
+name: gitploy-action
+description: GitHub Action to deploy a directory to a remote Git branch.
 author: remarkablemark
+
 inputs:
-  version:
-    description: Description
-    default: 1.2.3
+  directory:
+    description: The directory of the build files.
+    required: true
+
+  branch:
+    description: The remote Git branch to deploy to.
+    default: gh-pages
+
 runs:
   using: composite
   steps:
-    - name: Print version
+    - name: Setup Git
       shell: bash
+      working-directory: ${{ inputs.directory }}
       run: |
-        echo 'version: ${{ inputs.version }}'
+        git init --initial-branch master
+        git config user.name ${{ github.actor }}
+        git config user.email ${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com
+        git remote add origin https://${{ github.actor }}:${{ github.token }}@github.com/${{ github.repository }}
+
+    - name: Deploy directory to remote Git branch
+      shell: bash
+      working-directory: ${{ inputs.directory }}
+      run: |
+        git add --all
+        git commit --message 'build: deploy ${{ github.sha }} to ${{ inputs.branch }}'
+        git push --force origin master:${{ inputs.branch }}
+
+    - name: Cleanup Git
+      shell: bash
+      working-directory: ${{ inputs.directory }}
+      run: rm -rf .git
+      if: always()
+
 branding:
   icon: activity
   color: white
