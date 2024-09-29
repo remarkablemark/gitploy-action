@@ -1,0 +1,52 @@
+<h1>gitploy-action</h1>
+<p><a href="https://github.com/marketplace/actions/gitploy-action"><img src="https://badgen.net/badge/github/gitploy-action?icon&label" alt="action"></a>
+<a href="https://github.com/remarkablemark/gitploy-action/releases"><img src="https://badgen.net/github/release/remarkablemark/gitploy-action" alt="version"></a>
+<a href="https://github.com/remarkablemark/gitploy-action/actions/workflows/test.yml"><img src="https://github.com/remarkablemark/gitploy-action/actions/workflows/test.yml/badge.svg" alt="test"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a></p>
+<p>🚀 GitHub Action to deploy a directory to a remote Git branch. See <a href="https://remarkablemark.org/gitploy-action/">demo</a>.</p>
+<blockquote>
+<p>[!NOTE]</p>
+<p>If you see the error:</p>
+<pre><code>remote: Permission to ... denied to ....
+fatal: unable to access &#39;https://github.com/...&#39;: The requested URL returned error: 403
+</code></pre>
+<p>Enable <strong>Settings</strong> &gt; <strong>Actions</strong> &gt; <strong>General</strong> &gt; <strong>Workflow permissions</strong> &gt; <strong>Read and write permissions</strong></p>
+</blockquote>
+<h2>Quick Start</h2>
+<pre><code class="language-yaml"># .github/workflows/deploy.yml
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # insert build step
+      # ...
+
+      - name: Deploy to GitHub Pages
+        uses: remarkablemark/gitploy-action@v1
+        with:
+          directory: build
+</code></pre>
+<h2>Usage</h2>
+<p>See <a href="https://github.com/remarkablemark/gitploy-action/blob/master/action.yml">action.yml</a></p>
+<p><strong>Basic:</strong></p>
+<pre><code class="language-yaml">- uses: remarkablemark/gitploy-action@v1
+</code></pre>
+<h2>Inputs</h2>
+<h3><code>directory</code></h3>
+<p><strong>Required</strong>: The directory of the build files.</p>
+<pre><code class="language-yaml">- uses: remarkablemark/gitploy-action@v1
+  with:
+    directory: build
+</code></pre>
+<h3><code>branch</code></h3>
+<p><strong>Optional</strong>: The remote Git branch to deploy to. Defaults to <code>gh-pages</code>:</p>
+<pre><code class="language-yaml">- uses: remarkablemark/gitploy-action@v1
+  with:
+    directory: build
+    branch: gh-pages
+</code></pre>
+<h2>Contributions</h2>
+<p>Contributions are welcome! 👋</p>
+<h2>License</h2>
+<p><a href="https://github.com/remarkablemark/gitploy-action/blob/master/LICENSE">MIT</a></p>
