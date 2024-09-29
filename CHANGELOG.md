@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/remarkablemark/gitploy-action/compare/v1.0.0...v1.0.1) (2024-09-29)
+
+
+### Continuous Integration
+
+* **github:** use github actor in release-please.yml ([c0d9ddd](https://github.com/remarkablemark/gitploy-action/commit/c0d9ddd8733ef32141bd4cb1ed256a19887959e2))
+
 ## 1.0.0 (2024-09-28)
 
 ### Features
