@@ -25,8 +25,8 @@ jobs:
       - name: Tag major and minor versions
         if: ${{ steps.release.outputs.release_created }}
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git config user.name ${{ github.actor }}
+          git config user.email ${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com
           git tag -d v${{ steps.release.outputs.major }} || true
           git tag -d v${{ steps.release.outputs.major }}.${{ steps.release.outputs.minor }} || true
           git tag -a v${{ steps.release.outputs.major }} -m 'Release v${{ steps.release.outputs.major }}'
