@@ -28,8 +28,10 @@ runs:
       working-directory: ${{ inputs.directory }}
       run: |
         git add --all
-        git commit --message 'build: deploy ${{ github.sha }} to ${{ inputs.branch }}'
-        git push --force origin master:${{ inputs.branch }}
+        git commit --message "build: deploy ${{ github.sha }} to $BRANCH"
+        git push --force origin master:$BRANCH
+      env:
+        BRANCH: ${{ inputs.branch }}
 
     - name: Cleanup Git
       shell: bash
