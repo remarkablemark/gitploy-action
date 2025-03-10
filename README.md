@@ -1,6 +1,5 @@
 # gitploy-action
 
-[![action](https://badgen.net/badge/github/gitploy-action?icon&label)](https://github.com/marketplace/actions/gitploy-action)
 [![version](https://badgen.net/github/release/remarkablemark/gitploy-action)](https://github.com/remarkablemark/gitploy-action/releases)
 [![test](https://github.com/remarkablemark/gitploy-action/actions/workflows/test.yml/badge.svg)](https://github.com/remarkablemark/gitploy-action/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -26,10 +25,11 @@ on: push
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       # insert build step
       # ...
-
       - name: Deploy to GitHub Pages
         uses: remarkablemark/gitploy-action@v1
         with:
@@ -38,13 +38,13 @@ jobs:
 
 ## Usage
 
-See [action.yml](https://github.com/remarkablemark/gitploy-action/blob/master/action.yml)
-
 **Basic:**
 
 ```yaml
 - uses: remarkablemark/gitploy-action@v1
 ```
+
+See [action.yml](https://github.com/remarkablemark/gitploy-action/blob/master/action.yml)
 
 ## Inputs
 
@@ -69,10 +69,6 @@ See [action.yml](https://github.com/remarkablemark/gitploy-action/blob/master/ac
     branch: gh-pages
 ```
 
-## Contributions
-
-Contributions are welcome! 👋
-
 ## License
 
-[MIT](https://github.com/remarkablemark/gitploy-action/blob/master/LICENSE)
+[MIT](LICENSE)
