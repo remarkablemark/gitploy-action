@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.0](https://github.com/remarkablemark/gitploy-action/compare/v1.0.2...v1.1.0) (2025-03-15)
+
+### Features
+
+* **action:** add optional input `token` ([fc7ba25](https://github.com/remarkablemark/gitploy-action/commit/fc7ba250221ef4283c4ab2192b15c2ffeeb834a3))
+
 ## [1.0.2](https://github.com/remarkablemark/gitploy-action/compare/v1.0.1...v1.0.2) (2025-03-10)
 
 ### Bug Fixes
