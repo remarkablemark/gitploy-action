@@ -24,6 +24,7 @@ jobs:
         with:
           directory: ${{ github.run_id }}
           branch: ${{ env.TEST_BRANCH }}
+          token: ${{ github.token }}
 
       - name: Checkout test branch
         uses: actions/checkout@v4
