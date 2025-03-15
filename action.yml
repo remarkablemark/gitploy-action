@@ -10,6 +10,12 @@ inputs:
   branch:
     description: The remote Git branch to deploy to.
     default: gh-pages
+    required: false
+
+  token:
+    description: The GitHub token.
+    default: ${{ github.token }}
+    required: false
 
 runs:
   using: composite
@@ -19,9 +25,14 @@ runs:
       working-directory: ${{ inputs.directory }}
       run: |
         git init --initial-branch master
-        git config user.name ${{ github.actor }}
-        git config user.email ${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com
-        git remote add origin https://${{ github.actor }}:${{ github.token }}@github.com/${{ github.repository }}
+        git config user.name $ACTOR
+        git config user.email $ACTOR_ID+$ACTOR@users.noreply.github.com
+        git remote add origin https://$ACTOR:$GH_TOKEN@github.com/$REPOSITORY
+      env:
+        ACTOR: ${{ github.actor }}
+        ACTOR_ID: ${{ github.actor_id }}
+        REPOSITORY: ${{ github.repository }}
+        GH_TOKEN: ${{ inputs.token }}
 
     - name: Deploy directory to remote Git branch
       shell: bash

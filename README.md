@@ -38,10 +38,13 @@ jobs:
 
 ## Usage
 
-**Basic:**
+Commit and push `dist` to the remote `gh-pages` branch:
 
 ```yaml
 - uses: remarkablemark/gitploy-action@v1
+  with:
+    directory: dist
+    branch: gh-pages
 ```
 
 See [action.yml](https://github.com/remarkablemark/gitploy-action/blob/master/action.yml)
@@ -67,6 +70,16 @@ See [action.yml](https://github.com/remarkablemark/gitploy-action/blob/master/ac
   with:
     directory: build
     branch: gh-pages
+```
+
+### `token`
+
+**Optional**: The GitHub token. Defaults to `GITHUB_TOKEN`:
+
+```yaml
+- uses: remarkablemark/gitploy-action@v1
+  with:
+    token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 ## License
