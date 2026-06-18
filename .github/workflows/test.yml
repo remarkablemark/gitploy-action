@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Create test directory
         run: |
@@ -30,7 +30,7 @@ jobs:
           token: ${{ github.token }}
 
       - name: Checkout test branch
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           ref: ${{ env.TEST_BRANCH }}
 
